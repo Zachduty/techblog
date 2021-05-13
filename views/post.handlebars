@@ -1,0 +1,14 @@
+<div class="jumbotron jumbotron-fluid center-align my-5">
+  <div class="container">
+    <h1 class="display-4 text-center">{{post.title}}</h1>
+  </div>
+</div>
+
+<div class="card my-5 center-align">
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>{{post.content}}</p>
+      <footer class="blockquote-footer">{{ format_date post.date_created }}, {{ post.time_created }}    By: {{post.user.name}}</cite></footer>
+    </blockquote>
+  </div>
+</div>

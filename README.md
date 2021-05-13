@@ -1,2 +1,1 @@
-# techblog
-MVC Tech Blog
+# 14-Tech-Blog
