@@ -1,47 +1,44 @@
-const router = require("../controllers/api/userRoutes");
-const { User } = require("../models");
-
 const signupFormHandler = async(event) => {
-    event.preventdefault();
+    event.preventDefault();
 
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     const passConfirm = document.querySelector('#passCon-signup').value.trim();
-    const userName = document.querySelector('#user-signup').value.trim();
-    const passTrue = false;
+    const name = document.querySelector('#user-signup').value.trim();
 
-    if (password === passConfirm){
-        alert('Passwords match!');
-        return passTrue = true;
-    } else if (password !== passConfirm){
-        alert('Passwords do not match, please try again.')
+    if (!passtrue(password, passConfirm)) {
         return;
     }
 
-    if (email && password && passTrue && userName) {
-        router.post('/login', async (req, res) => {
-            try {
-                const newuserData = await User.create({
-                    name: userName,
-                    email: email,
-                    password: password,
-                })
+    if (email && password && name) {
+        alert('We hit the if statement!')
+        console.log(email, password, name)
+        const response = await fetch('/api/user/signup', {
+            method: 'POST',
+            body: JSON.stringify({ name, email, password }),
+            headers: { 'Content-Type': 'application/json' },
+          });
 
-                if(newuserData.ok) {
-                    document.location.replace('/');
-                    alert('Signup successful!');
-                } else {
-                    alert('Signup failed, please try again.');
-                }
-            }
-            catch (err) {
-                res.status(400).json(err);
-            }
-        })
+          if (response.ok) {
+            document.location.replace('/');
+          } else {
+            alert('Failed to create account.');
+          }
     }
 
 }
 
+const passtrue = (input1, input2) => {
+    if (input1 === input2){
+        alert('Passwords match!')
+        return true;
+    } else if (input1 != input2) {
+        alert('Passwords do not match, please try again.');
+        return false;
+    }
+}
+
+
 document
-    .querySelector('#signUp')
-    .addEventListener('#signup-submit', signupFormHandler);
+    .querySelector('#signup-submit')
+    .addEventListener('click', signupFormHandler);

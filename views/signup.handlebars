@@ -11,34 +11,21 @@
          <div class="col-md-4 mx-auto">
             <div class="myform form ">
                <form action="" method="post" name="login">
-                  <div class="form-group">
-                     <input type="text" name="name"  class="form-control my-input" id="name" placeholder="Username">
+                  <div class="form-group text-center">
+                     <input type="text" name="name"  class="form-control my-input" id="user-signup" placeholder="Username">
                   </div>
                   <div class="form-group">
-                     <input type="email" name="email"  class="form-control my-input" id="email" placeholder="Email">
+                     <input type="email" name="email"  class="form-control my-input" id="email-signup" placeholder="Email">
                   </div>
                   <div class="form-group">
-                     <input type="number" min="0" name="phone" id="phone"  class="form-control my-input" placeholder="Password">
+                     <input type="password" min="0" name="password" id="password-signup"  class="form-control my-input" placeholder="Password">
                   </div>
                   <div class="form-group">
-                     <input type="number" min="0" name="phone" id="phone"  class="form-control my-input" placeholder="Confirm Password">
+                     <input type="password" min="0" name="confirm-password" id="passCon-signup"  class="form-control my-input" placeholder="Confirm Password">
                   </div>
                   <div class="text-center ">
-                     <button type="submit" class=" btn btn-block send-button tx-tfm">Create Account</button>
+                     <button id="signup-submit" type="submit" class=" btn btn-block send-button tx-tfm">Create Account</button>
                   </div>
-                  {{!-- <div class="col-md-12 ">
-                     <div class="login-or">
-                        <hr class="hr-or">
-                        <span class="span-or">or</span>
-                     </div>
-                  </div>
-                  <div class="form-group">
-                     <a class="btn btn-block g-button" href="#">
-                     <i class="fa fa-google"></i> Sign up with Google
-                     </a>
-                  </div>
-                  <p class="small mt-3">By signing up, you are indicating that you have read and agree to the <a href="#" class="ps-hero__content__link">Terms of Use</a> and <a href="#">Privacy Policy</a>.
-                  </p> --}}
                </form>
             </div>
          </div>

@@ -7,10 +7,6 @@ const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// const { Certificate } = require('crypto');
-// const { create } = require('./models/Comment');
-// const { userInfo } = require('os');
-// const { User } = require('./models');
 
 const app = express();
 const PORT = process.env.PORT || 3002;

@@ -1,7 +1,6 @@
 const loginFormHandler = async (event) => {
-  console.log("login form triggered");
   event.preventDefault();
-
+  console.log("login form triggered");
   const email = document.querySelector("#email-login").value.trim();
   const password = document.querySelector("#password-login").value.trim();
 
@@ -22,4 +21,4 @@ const loginFormHandler = async (event) => {
 
 document
   .querySelector("#login-button")
-  .addEventListener("submit", loginFormHandler);
+  .addEventListener("click", loginFormHandler);
