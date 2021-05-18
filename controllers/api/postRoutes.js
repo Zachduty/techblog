@@ -1,5 +1,6 @@
 const { Post, User, Comment } = require("../../models");
 const { create } = require("../../models/Post");
+const withAuth = require("../../utils/auth");
 const router = require("express").Router();
 
 router.get("/:id", async (req, res) => {
@@ -51,5 +52,21 @@ router.post("/create", async function (req, res) {
 
 
 });
+
+router.get('/dashboard/postupdate/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+
+    const currentPost = postData.get({ plain: true });
+    res.render('postupdate', { currentPost, loggedIn: req.session.logged_in })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
 
 module.exports = router;

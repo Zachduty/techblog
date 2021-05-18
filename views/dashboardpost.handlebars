@@ -1,0 +1,36 @@
+<div class="text-center my-5">
+    <a href="/api/post/dashboard/postupdate/{{post.id}}" class="mx-5">Edit</a>
+    <button type="button" id="delete-button" class="btn btn-secondary btn-lg">Delete</button>
+</div>
+<div class="jumbotron jumbotron-fluid center-align my-5">
+    <div class="container">
+        <h1 class="display-4 text-center">{{post.title}}</h1>
+    </div>
+</div>
+
+<div class="card my-5 center-align">
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>{{post.content}}</p>
+            <footer class="blockquote-footer">{{ format_date post.date_created }}, {{ post.time_created }} By:
+                {{post.user.name}}</cite></footer>
+            <a href="/api/comment/{{post.id}}" class="btn btn-light">Comment</a>
+        </blockquote>
+    </div>
+</div>
+
+{{#if comments.length}}
+{{#each comments as |comment|}}
+<div class="card p-3">
+    <blockquote class="blockquote mb-0 card-body">
+        <p>{{comment.body}}</p>
+    </blockquote>
+    <footer class="blockquote-footer">
+        <small class="text-muted">
+            {{comment.username}}, {{format_date comment.date_created}}
+        </small>
+    </footer>
+</div>
+<br>
+{{/each}}
+{{/if}}
